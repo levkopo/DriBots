@@ -3,7 +3,7 @@
   "description": "Chat bot library for VK, Viber, Telegram and other platforms",
   "minimum-stability": "stable",
   "license": "MIT",
-  "version": "0.1",
+  "version": "0.1.1",
   "authors": [
     {
       "name": "levkopo",
