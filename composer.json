@@ -1,9 +1,10 @@
 {
   "name": "levkopo/dribots",
   "description": "Chat bot library for VK, Viber, Telegram and other platforms",
+  "type": "library",
   "minimum-stability": "stable",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.1-RC",
   "authors": [
     {
       "name": "levkopo",
