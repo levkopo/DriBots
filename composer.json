@@ -4,7 +4,7 @@
   "type": "library",
   "minimum-stability": "stable",
   "license": "MIT",
-  "version": "0.1.1-RC",
+  "version": "0.1.1",
   "authors": [
     {
       "name": "levkopo",
@@ -20,6 +20,12 @@
   "autoload-dev": {
     "psr-4": {
       "DriBots\\": "tests/DriBots"
+    }
+  },
+
+  "extra": {
+    "branch-alias": {
+      "dev-main": "2.x-dev"
     }
   },
 
