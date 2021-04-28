@@ -4,12 +4,15 @@ declare(strict_types=1);
 namespace DriBots;
 
 use DriBots\Data\Message;
-use DriBots\Platforms\BasePlatform;
+use DriBots\Platforms\BasePlatformProvider;
+use DriBots\Platforms\UnitedPlatformProvider;
 
 abstract class Bot {
-    public BasePlatform $platform;
+    public BasePlatformProvider $platformProvider;
+    public UnitedPlatformProvider $unitedPlatformProvider;
 
-    public final function __construct(){}
-
+    final public function __construct(){}
     public function onNewMessage(Message $message){}
+
+
 }

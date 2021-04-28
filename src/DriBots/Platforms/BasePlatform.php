@@ -12,8 +12,12 @@ abstract class BasePlatform {
         return false;
     }
 
-    public function getEvent(): Event|bool {
+    public function getEvent(): Event|false {
         return false;
+    }
+
+    public function getPlatformProvider(): ?BasePlatformProvider {
+        return null;
     }
 
     public function handleEnd(): void {}

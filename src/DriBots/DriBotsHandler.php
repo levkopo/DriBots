@@ -7,6 +7,7 @@ namespace DriBots;
 
 use DriBots\Exceptions\InvalidBotClassException;
 use DriBots\Platforms\BasePlatform;
+use DriBots\Platforms\UnitedPlatformProvider;
 use JetBrains\PhpStorm\Pure;
 use ReflectionClass;
 
@@ -34,13 +35,17 @@ class DriBotsHandler {
         return $this;
     }
 
-    public function handle(){
+    public function handle(): void {
         foreach($this->platforms as $platform){
             /*** @var BasePlatform $platform */
-            if($platform->requestIsAccept()){
-                $this->bot->platform = $platform;
+            if($platform->requestIsAccept()&&
+                ($platformProvider = $platform->getPlatformProvider())&&
+                $platformProvider!==null){
+                $this->bot->platformProvider = $platformProvider;
+                $this->bot->unitedPlatformProvider
+                    = new UnitedPlatformProvider($this->platforms);
 
-                if($event = $platform->getEvent()){
+                if($event = $platform->getEvent()) {
                     $event->call($this->bot);
                 }
 
