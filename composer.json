@@ -1,0 +1,37 @@
+{
+  "name": "levkopo/dribots",
+  "description": "Chat bot library for VK, Viber, Telegram and other platforms",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "levkopo",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DriBots\\": "src/DriBots"
+    }
+  },
+
+  "autoload-dev": {
+    "psr-4": {
+      "DriBots\\": "tests/DriBots"
+    }
+  },
+
+  "require": {
+    "php": ">=8.0",
+    "monolog/monolog": "^2.2"
+  },
+
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^9.5"
+  },
+
+  "scripts": {
+    "test": "vendor\\bin\\phpunit TestSimpleBot tests/DriBots/SimpleBot/TestSimpleBot.php"
+  }
+}
