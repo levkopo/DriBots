@@ -5,10 +5,12 @@
   "minimum-stability": "stable",
   "license": "MIT",
   "version": "1.0.1",
+  "homepage": "https://github.com/levkopo/DriBots",
   "authors": [
     {
       "name": "levkopo",
-      "email": "levkopoag@gmail.com"
+      "email": "levkopoag@gmail.com",
+      "homepage": "https://github.com/levkopo/"
     }
   ],
   "autoload": {
