@@ -5,14 +5,28 @@ namespace DriBots;
 
 use DriBots\Data\Message;
 use DriBots\Platforms\BasePlatformProvider;
-use DriBots\Platforms\UnitedPlatformProvider;
 
 abstract class Bot {
     public BasePlatformProvider $platformProvider;
-    public UnitedPlatformProvider $unitedPlatformProvider;
+
+    private ?array $platforms = null;
 
     final public function __construct(){}
-    public function onNewMessage(Message $message){}
 
+    //Events
+    public function onNewMessage(Message $message): void {}
 
+    public function acceptPlatforms(array $platforms): void {
+        if($this->platforms===null) {
+            $this->platforms = $platforms;
+        }
+    }
+
+    public function getPlatform(string $name): BasePlatformProvider|false {
+        if($this->platforms===null) {
+            return false;
+        }
+
+        return $this->platforms[$name]??false;
+    }
 }

@@ -18,7 +18,7 @@ class Event {
         return new Event("onNewMessage", [$message]);
     }
 
-    public function call(Bot $bot){
+    public function call(Bot $bot): void {
         call_user_func_array([$bot,
             $this->functionName], $this->args);
     }

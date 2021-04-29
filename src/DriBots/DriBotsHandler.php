@@ -41,9 +41,8 @@ class DriBotsHandler {
             if($platform->requestIsAccept()&&
                 ($platformProvider = $platform->getPlatformProvider())&&
                 $platformProvider!==null){
+                $this->bot->acceptPlatforms($this->platforms);
                 $this->bot->platformProvider = $platformProvider;
-                $this->bot->unitedPlatformProvider
-                    = new UnitedPlatformProvider($this->platforms);
 
                 if($event = $platform->getEvent()) {
                     $event->call($this->bot);
