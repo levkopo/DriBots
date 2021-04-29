@@ -7,8 +7,6 @@ namespace DriBots;
 
 use DriBots\Exceptions\InvalidBotClassException;
 use DriBots\Platforms\BasePlatform;
-use DriBots\Platforms\UnitedPlatformProvider;
-use JetBrains\PhpStorm\Pure;
 use ReflectionClass;
 
 class DriBotsHandler {
