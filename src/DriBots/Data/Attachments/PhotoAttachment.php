@@ -22,7 +22,7 @@ class PhotoAttachment implements Attachment {
 
 
     public function save(string $name): PhotoAttachment|false {
-        $filename = Config::$TMP_DIR."/".$name.".".$this->extension;
+        $filename = realpath(Config::$TMP_DIR."/".$name.".".$this->extension);
 
         if(file_put_contents($filename, file_get_contents($this->path))) {
             return new PhotoAttachment($filename, $this->extension);
