@@ -4,4 +4,6 @@
 namespace DriBots\Data;
 
 
-abstract class Attachment {}
+interface Attachment {
+    public function save(string $name): Attachment|false;
+}

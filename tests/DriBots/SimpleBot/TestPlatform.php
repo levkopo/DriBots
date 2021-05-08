@@ -18,7 +18,7 @@ class TestPlatform extends BasePlatform {
         return isset($_GET['conditionForRun']);
     }
 
-    #[Pure] public function getEvent(): Event|bool {
+    #[Pure] public function getEvent(): Event {
         return Event::NEW_MESSAGE(new Message(
             123, 5, "Test message!"));
     }

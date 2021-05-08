@@ -10,21 +10,21 @@ use PHPUnit\Framework\TestCase;
 
 class TestSimpleBot extends TestCase {
 
-    public static TestSimpleBot $instance;
+    public static string $value;
 
     /**
      * @throws \ReflectionException
      * @throws \DriBots\Exceptions\InvalidBotClassException
      */
     public function mainTest(){
-        self::$instance = $this;
         $_GET['conditionForRun'] = 123;
 
         DriBotsHandler::new(new class extends Bot {
             public function onNewMessage(Message $message) {
-                echo "OK";
+                TestSimpleBot::$value = "ok";
             }
 
         })->addPlatform(new TestPlatform())->handle();
+        self::assertEquals("ok", self::$value);
     }
 }
