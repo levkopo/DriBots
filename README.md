@@ -22,4 +22,28 @@ composer require levkopo/dribots-vk
 ```
 
 ## Usage
-Not docs
+
+Example bot resend sended message for VK.com and Telegram:
+```php
+use DriBots\Bot;
+use DriBots\Data\Message;
+use DriBots\DriBotsHandler;
+use DriBots\Platforms\TelegramPlatform;
+use DriBots\Platforms\VKPlatform;
+
+const TELEGRAM_BOT_TOKEN = "<telegram token>";
+
+const VK_ACCESS_TOKEN = "<vk token>";
+const VK_GROUP_ID = <vk group id>;
+
+include_once __DIR__."/./vendor/autoload.php";
+
+DriBotsHandler::new(new class extends Bot {
+    public function onNewMessage(Message $message): void {
+        $this->platformProvider->sendMessage($message->fromId, $message->text,
+            $message->attachment?->save($message->fromId.$message->id));
+    }
+})->addPlatform(new VKPlatform(VK_ACCESS_TOKEN, VK_GROUP_ID))
+    ->addPlatform(new TelegramPlatform(TELEGRAM_BOT_TOKEN))
+    ->handle();
+```
