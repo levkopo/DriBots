@@ -18,8 +18,8 @@ class Event {
         return new Event("onNewMessage", [$message]);
     }
 
-    #[Pure] public static function INLINE_QUERY(Message $message): Event {
-        return new Event("onInlineQuery", [$message]);
+    #[Pure] public static function INLINE_QUERY(InlineQuery $inlineQuery): Event {
+        return new Event("onInlineQuery", [$inlineQuery]);
     }
 
     public function call(Bot $bot): void {
