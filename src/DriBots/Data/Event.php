@@ -14,8 +14,12 @@ class Event {
         private array $args
     ) {}
 
-    #[Pure] public static function NEW_MESSAGE(Message $message): Event{
+    #[Pure] public static function NEW_MESSAGE(Message $message): Event {
         return new Event("onNewMessage", [$message]);
+    }
+
+    #[Pure] public static function INLINE_QUERY(Message $message): Event {
+        return new Event("onInlineQuery", [$message]);
     }
 
     public function call(Bot $bot): void {

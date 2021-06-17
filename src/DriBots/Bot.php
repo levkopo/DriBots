@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace DriBots;
 
+use DriBots\Data\InlineQuery;
 use DriBots\Data\Message;
 use DriBots\Platforms\BasePlatformProvider;
 
@@ -15,6 +16,7 @@ abstract class Bot {
 
     //Events
     public function onNewMessage(Message $message): void {}
+    public function onInlineQuery(InlineQuery $inlineQuery): void {}
 
     public function acceptPlatforms(array $platforms): void {
         if($this->platforms===null) {

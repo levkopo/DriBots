@@ -9,6 +9,6 @@ use DriBots\Data\Message;
 use DriBots\Data\User;
 
 interface BasePlatformProvider {
-    public function sendMessage(int $toId, string $text, Attachment $attachment = null): Message|false;
-    public function getUser(int $userId): User|false;
+    public function sendMessage(int $chatId, string $text, Attachment $attachment = null): Message|false;
+    public function getUser(int $chatId, int $userId): User|false;
 }
