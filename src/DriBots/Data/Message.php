@@ -9,6 +9,7 @@ class Message {
         public int $fromId = 0,
         public int $ownerId = 0,
         public string $text = "",
-        public ?Attachment $attachment = null
+        public ?Attachment $attachment = null,
+        public ?User $user = null
     ) {}
 }
