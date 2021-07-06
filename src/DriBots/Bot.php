@@ -5,10 +5,12 @@ namespace DriBots;
 
 use DriBots\Data\InlineQuery;
 use DriBots\Data\Message;
+use DriBots\Platforms\BasePlatform;
 use DriBots\Platforms\BasePlatformProvider;
 
 abstract class Bot {
     public BasePlatformProvider $platformProvider;
+    public BasePlatform $platform;
 
     private ?array $platforms = null;
 

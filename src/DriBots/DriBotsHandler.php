@@ -8,13 +8,14 @@ namespace DriBots;
 use DriBots\Exceptions\InvalidBotClassException;
 use DriBots\Platforms\BasePlatform;
 use ReflectionClass;
+use ReflectionException;
 
 class DriBotsHandler {
     private array $platforms = [];
     private Bot $bot;
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      * @throws InvalidBotClassException
      */
     private function __construct(string|Bot $bot) {
@@ -41,6 +42,7 @@ class DriBotsHandler {
                 $platformProvider!==null){
                 $this->bot->acceptPlatforms($this->platforms);
                 $this->bot->platformProvider = $platformProvider;
+                $this->bot->platform = $platform;
 
                 if($event = $platform->getEvent()) {
                     $event->call($this->bot);
@@ -53,7 +55,8 @@ class DriBotsHandler {
     }
 
     /**
-     * @throws \ReflectionException
+     * @param class-string|Bot $className
+     * @throws ReflectionException
      * @throws InvalidBotClassException
      */
     public static function new(string|Bot $className): DriBotsHandler {
