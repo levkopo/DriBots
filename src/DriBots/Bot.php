@@ -27,7 +27,7 @@ abstract class Bot {
     }
 
     public function getPlatformProvider(string $name): BasePlatformProvider|false {
-        if(!isset($this->platforms[$name])) return $this->platforms[$name]->getPlatformProvider()
+        if(!isset($this->platforms[$name])) return $this->platforms[$name]->getPlatformProvider();
         return false;
     }
 }
