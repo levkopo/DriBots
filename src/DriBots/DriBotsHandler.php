@@ -27,7 +27,7 @@ class DriBotsHandler {
     }
 
     public function addPlatform(BasePlatform $platform): DriBotsHandler{
-        $this->platforms[] = $platform;
+        $this->platforms[$platform->getName()] = $platform;
         return $this;
     }
 
