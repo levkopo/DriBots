@@ -11,6 +11,9 @@ abstract class Bot {
     public BasePlatformProvider $platformProvider;
     public BasePlatform $platform;
 
+    /**
+     * @var BasePlatform[]
+     */
     private array $platforms = [];
 
     final public function __construct(){}
@@ -24,6 +27,7 @@ abstract class Bot {
     }
 
     public function getPlatformProvider(string $name): BasePlatformProvider|false {
-        return $this->platforms[$name]??false;
+        if(!isset($this->platforms[$name])) return $this->platforms[$name]->getPlatformProvider()
+        return false;
     }
 }
