@@ -20,7 +20,7 @@ abstract class Bot {
     public function onInlineQuery(InlineQuery $inlineQuery): void {}
 
     public function acceptPlatforms(array $platforms): void {
-        if(empty($platforms)) $this->platforms = $platforms;
+        if(empty($this->platforms)) $this->platforms = $platforms;
     }
 
     public function getPlatformProvider(string $name): BasePlatformProvider|false {
