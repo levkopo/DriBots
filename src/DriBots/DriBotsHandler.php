@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 
 namespace DriBots;
@@ -8,14 +7,12 @@ namespace DriBots;
 use DriBots\Exceptions\InvalidBotClassException;
 use DriBots\Platforms\BasePlatform;
 use ReflectionClass;
-use ReflectionException;
 
 class DriBotsHandler {
     private array $platforms = [];
     private Bot $bot;
 
     /**
-     * @throws ReflectionException
      * @throws InvalidBotClassException
      */
     private function __construct(string|Bot $bot) {
@@ -56,7 +53,6 @@ class DriBotsHandler {
 
     /**
      * @param class-string|Bot $className
-     * @throws ReflectionException
      * @throws InvalidBotClassException
      */
     public static function new(string|Bot $className): DriBotsHandler {

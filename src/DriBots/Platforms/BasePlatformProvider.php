@@ -14,4 +14,5 @@ interface BasePlatformProvider {
     public function sendMessage(int $chatId, string $text, Attachment $attachment = null): Message|false;
     public function getUser(int $chatId, int $userId): User|false;
     public function answerToQuery(InlineQuery $query, InlineQueryResult $inlineQueryResult): bool;
+    public function getAttachmentFromFileId(string $fileId): Attachment|false;
 }

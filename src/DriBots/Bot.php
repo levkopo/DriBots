@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace DriBots;
 
@@ -12,7 +11,7 @@ abstract class Bot {
     public BasePlatformProvider $platformProvider;
     public BasePlatform $platform;
 
-    private ?array $platforms = null;
+    private array $platforms = [];
 
     final public function __construct(){}
 
@@ -21,16 +20,10 @@ abstract class Bot {
     public function onInlineQuery(InlineQuery $inlineQuery): void {}
 
     public function acceptPlatforms(array $platforms): void {
-        if($this->platforms===null) {
-            $this->platforms = $platforms;
-        }
+        if(empty($platforms)) $this->platforms = $platforms;
     }
 
-    public function getPlatform(string $name): BasePlatformProvider|false {
-        if($this->platforms===null) {
-            return false;
-        }
-
+    public function getPlatformProvider(string $name): BasePlatformProvider|false {
         return $this->platforms[$name]??false;
     }
 }

@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace DriBots\Platforms;
 
@@ -7,21 +6,10 @@ namespace DriBots\Platforms;
 use DriBots\Data\Event;
 
 abstract class BasePlatform {
-
-    public function requestIsAccept(): bool {
-        return false;
-    }
-
-    public function getEvent(): Event|false {
-        return false;
-    }
-
-    public function getPlatformProvider(): ?BasePlatformProvider {
-        return null;
-    }
+    public abstract function getEvent(): Event|false;
+    public abstract function requestIsAccept(): bool;
+    public abstract function getPlatformProvider(): BasePlatformProvider;
+    public abstract function getName(): string;
 
     public function handleEnd(): void {}
-    public function getName(): string {
-        return "";
-    }
 }
