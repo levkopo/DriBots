@@ -19,7 +19,8 @@ class PhotoAttachment extends Attachment {
     }
 
     public function save(string $name): PhotoAttachment|false {
-        $filename = realpath(Config::$TMP_DIR."/".$name.".".$this->extension);
+        $filename = realpath(Config::$TMP_DIR."/").$name.".".$this->extension;
+
 
         if(file_put_contents($filename, file_get_contents($this->getPath()))) {
             $attachment = new PhotoAttachment($this->extension);
